@@ -1,13 +1,17 @@
-
 <?php 
 require('db_connect.php');
 $sql = "SELECT * FROM scedules";
 $stmt = $db->query($sql);
- var_dump($stmt);
- phpinfo();
- exit
+  
+$sql2 = "SELECT * FROM langage_chart";
+$stmt2 = $db2->query($sql);
+  
+$sql3 = "SELECT * FROM contents_chart";
+$stmt3 = $db3->query($sql);
 
-
+$sql4 = "SELECT * FROM bar_chart";
+$stmt4 = $db4->query($sql);
+ 
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,7 +29,7 @@ $stmt = $db->query($sql);
     <div class="header">
 
         <div class="img">
-            <img src="/Users/d_chan/Downloads/posselogowhite.jpg" alt="POSSE" class="posse-img">
+            <img src="posselogowhite.jpg" alt="POSSE" class="posse-img">
         </div>
 
         <div class="weeks">
@@ -110,7 +114,7 @@ $stmt = $db->query($sql);
         </div>
 
     </div>
-
+<form action="IndiePro.php" method="POST">
     <div id="modal" class="modal">
         <div class="modal-content">
             <div class="modal-body">
@@ -120,9 +124,12 @@ $stmt = $db->query($sql);
                         <h4>学習日</h4>
                     </div>
 
+                
                     <div class="input-day-box">
-                        <textarea name="comment" cols="33" rows="1" class="input-day"></textarea>
+                       <input type="text" name="">
                     </div>
+
+                
 
                     <div class="contents-studied">
                         <h4>学習コンテンツ</h4>
@@ -200,7 +207,7 @@ $stmt = $db->query($sql);
                 </div>
 
                 <div class="input-time-box">
-                    <textarea name="comment" cols="33" rows="1" class="input-time"></textarea>
+                   <input type="text" name="timebyday">
                 </div>
 
                 <div class="commentfortwitter">
@@ -224,7 +231,7 @@ $stmt = $db->query($sql);
 
 
             <div class="r-p-button-two-divided">
-                <input type="button" id="btn2" value="投稿" class="r-p-button-two">
+                <input type="submit" id="btn2" value="投稿" class="r-p-button-two"> 
 
 
 
@@ -233,6 +240,7 @@ $stmt = $db->query($sql);
             </div>
         </div>
     </div>
+</form>
 
 
 
@@ -302,7 +310,7 @@ $stmt = $db->query($sql);
 
 
             <div class="r-p-button-two-divided">
-                <input type="button" id="btn2" value="投稿" class="r-p-button-two">
+                <input type="submit" id="btn2" value="投稿" class="r-p-button-two">
             </div>
         </div>
     </div>
@@ -331,7 +339,11 @@ $stmt = $db->query($sql);
 
 
 
-        <script src="Indie production.js"></script>
+        <script src="IndiePro.js"></script>
+        <script src="contents_chart.php" type = "text/javascript"></script>
+        <script src="bar_graph.php" type = "text/javascript"></script>
+        <script src="language_chart.php" type = "text/javascript"></script>
+       
         <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
 </body>
 
