@@ -104,79 +104,79 @@ document.querySelector('#calendar').innerHTML = calendarHtml
 // -----------------------------ドーナツグラフ作り------------------------------------------
 
 
-  var ctx = document.getElementById("myDoughnutChart");
-  var myDoughnutChart= new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ["JavaScript", "CSS", "PHP", "HTML","Laravel","SQL","SHELL","情報システム基礎知識（その他）",] , //データ項目のラベル
-      datasets: [{
-          backgroundColor: [
-           "#0033FF",
-           "#006699",
-           "#33CCCC",
-           "#00CCFF",
-           "#9966FF",
-           "#9933FF",
-           "#6633CC",
-           "#6600CC",
-          ],
-          data: [42,18,10,10,6,5,4,4] //グラフのデータ
-      }]
+  // var ctx = document.getElementById("myDoughnutChart");
+  // var myDoughnutChart= new Chart(ctx, {
+  //   type: 'doughnut',
+  //   data: {
+  //     labels: ["JavaScript", "CSS", "PHP", "HTML","Laravel","SQL","SHELL","情報システム基礎知識（その他）",] , //データ項目のラベル
+  //     datasets: [{
+  //         backgroundColor: [
+  //          "#0033FF",
+  //          "#006699",
+  //          "#33CCCC",
+  //          "#00CCFF",
+  //          "#9966FF",
+  //          "#9933FF",
+  //          "#6633CC",
+  //          "#6600CC",
+  //         ],
+  //         data: [42,18,10,10,6,5,4,4] //グラフのデータ
+  //     }]
      
-    },
-    options: {
-      legend:{
-      position:"bottom",
-      },
+  //   },
+  //   options: {
+  //     legend:{
+  //     position:"bottom",
+  //     },
 
-      title: {
-        display: true,
-        text: '学習言語',
-        fontSize:15,
+  //     title: {
+  //       display: true,
+  //       text: '学習言語',
+  //       fontSize:15,
         
         
-      }
+  //     }
       
-    }
-  });
+  //   }
+  // });
 
 // -----------------------------ドーナツグラフ作り2------------------------------------------
 
-var ctx2 = document.getElementById("myDoughnutChart2");
-  var myDoughnutChart= new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-      labels: ["ドットインストール", "N予備校", "POSSE課題", ], //データ項目のラベル
-      datasets: [{
-          backgroundColor: [
-              "#0033FF",
-              "#006699",
-              "#33CCCC",
-          ],
+// var ctx2 = document.getElementById("myDoughnutChart2");
+//   var myDoughnutChart= new Chart(ctx2, {
+//     type: 'doughnut',
+//     data: {
+//       labels: ["ドットインストール", "N予備校", "POSSE課題", ], //データ項目のラベル
+//       datasets: [{
+//           backgroundColor: [
+//               "#0033FF",
+//               "#006699",
+//               "#33CCCC",
+//           ],
           
-          data: [42, 33, 22,], //グラフのデータ
+//           data: [42, 33, 22,], //グラフのデータ
          
-      }]
-    },
-    options: {
+//       }]
+//     },
+//     options: {
 
-      legend:{
-        position:"bottom",
+//       legend:{
+//         position:"bottom",
        
-        },
+//         },
 
-      title: {
-        display: true,
-        //グラフタイトル
-        text: '学習コンテンツ',
-        fontSize:15,
+//       title: {
+//         display: true,
+//         //グラフタイトル
+//         text: '学習コンテンツ',
+//         fontSize:15,
 
         
-      },
+//       },
      
-    }
+//     }
     
-  });
+//   });
 
 
 
@@ -185,79 +185,79 @@ var ctx2 = document.getElementById("myDoughnutChart2");
 
   // -----------------------------棒グラフ作り------------------------------------------
 
-  var ctx = document.getElementById("myBarChart");
-  var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-     //凡例のラベル2
-      labels: ['2', '4', '6', '8', '10','12','14','16',"18","20","22","24","26","28","30",],
+  // var ctx = document.getElementById("myBarChart");
+  // var myBarChart = new Chart(ctx, {
+  //   type: 'bar',
+  //   data: {
+  //    //凡例のラベル2
+  //     labels: ['2', '4', '6', '8', '10','12','14','16',"18","20","22","24","26","28","30",],
      
     
       
-     datasets: [
+  //    datasets: [
 
 
-        {
-          data: [1,2,3,4,5], //グラフのデータ
-          backgroundColor: "#0033FF"
-        },
-        {
-          data: [1,2,3,4,5], //グラフのデータ
-          backgroundColor: "#0033FF",
-        },
+  //       {
+  //         data: [1,2,3,4,5], //グラフのデータ
+  //         backgroundColor: "#0033FF"
+  //       },
+  //       {
+  //         data: [1,2,3,4,5], //グラフのデータ
+  //         backgroundColor: "#0033FF",
+  //       },
        
-      ]
-    },
+  //     ]
+  //   },
 
 
-    options: {
-      title: {
-        display: false,
-        //グラフタイトル
+  //   options: {
+  //     title: {
+  //       display: false,
+  //       //グラフタイトル
         
-      },
-      legend:{
-      display:false,
+  //     },
+  //     legend:{
+  //     display:false,
 
-      },
-      scales: {
-        yAxes: [{
+  //     },
+  //     scales: {
+  //       yAxes: [{
           
-          gridLines: {
-          display:false,
-          drawBorder:false,
-             },
+  //         gridLines: {
+  //         display:false,
+  //         drawBorder:false,
+  //            },
         
-          ticks: {
-            suggestedMax: 6, //最大値
-            suggestedMin: 0, //最小値
-            stepSize: 2, //縦ラベルの数値単位
-            callback: function(value) {
-              return value +'h';}
-            },
+  //         ticks: {
+  //           suggestedMax: 6, //最大値
+  //           suggestedMin: 0, //最小値
+  //           stepSize: 2, //縦ラベルの数値単位
+  //           callback: function(value) {
+  //             return value +'h';}
+  //           },
             
-        }],
+  //       }],
         
          
-        xAxes: [{
+  //       xAxes: [{
         
 
-          categoryPercentage: 0.5, 
-          barPercentage: 0.5,      
+  //         categoryPercentage: 0.5, 
+  //         barPercentage: 0.5,      
               
-          gridLines: {
-            display:false,
-            drawBorder:false,
-        },
+  //         gridLines: {
+  //           display:false,
+  //           drawBorder:false,
+  //       },
         
-           }] 
+  //          }] 
 
-      },
-      },
+  //     },
+  //     },
      
 
 
 
 
-  });
+  // });
  

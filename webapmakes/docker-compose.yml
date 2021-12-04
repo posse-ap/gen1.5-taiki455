@@ -8,6 +8,7 @@ services:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/sql:/docker-entrypoint-initdb.d
       - ./mysql/mysql_conf:/etc/mysql/conf.d
+      
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: web_app
@@ -26,7 +27,7 @@ services:
     # - "8080:8000"
     volumes:
     - ./html:/var/www/html
-    - ./php/php.ini:/usr/local/etc/php/php.ini
+    # - ./php/php.ini:/usr/local/etc/php/php.ini
     
 
   nginx:
