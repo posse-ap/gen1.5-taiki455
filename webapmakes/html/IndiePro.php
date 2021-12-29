@@ -3,15 +3,7 @@ require('db_connect.php');
 $sql = "SELECT * FROM scedules";
 $stmt = $db->query($sql);
   
-$sql2 = "SELECT * FROM langage_chart";
-$stmt2 = $db2->query($sql);
-  
-$sql3 = "SELECT * FROM contents_chart";
-$stmt3 = $db3->query($sql);
 
-$sql4 = "SELECT * FROM bar_chart";
-$stmt4 = $db4->query($sql);
- 
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -37,7 +29,7 @@ $stmt4 = $db4->query($sql);
         </div>
 
 
-        　　　
+        
     </div>
 
 
@@ -84,6 +76,9 @@ $stmt4 = $db4->query($sql);
 
     </div>
 
+
+
+    
     <div class="graph">
         <canvas id="myBarChart" class='barchart'></canvas>
     </div>
@@ -340,9 +335,10 @@ $stmt4 = $db4->query($sql);
 
 
         <script src="IndiePro.js"></script>
+        <script src="language_chart.php" type = "text/javascript"></script>
         <script src="contents_chart.php" type = "text/javascript"></script>
         <script src="bar_graph.php" type = "text/javascript"></script>
-        <script src="language_chart.php" type = "text/javascript"></script>
+       
        
         <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
 </body>
