@@ -1,10 +1,11 @@
+require('db_connect.php');
 var ctx = document.getElementById("myDoughnutChart");
   var myDoughnutChart= new Chart(ctx, {
     type: 'doughnut',
+    <?php foreach ($stmt2 as $row)  { ?>
     data: {
-      labels: ["<?php echo $row['data'] ?> ",] ,
-        <?php foreach ($stmt2 as $row)  { ?>
-      labels: ["<?php echo $row['data'] ?> ",] , //データ項目のラベル
+        
+      labels: ["<?php echo $row['lang'] ?> ",] , //データ項目のラベル
       datasets: [{
           
           backgroundColor: [
@@ -13,8 +14,9 @@ var ctx = document.getElementById("myDoughnutChart");
          
           data: [42,18,10,10,6,5,4,4] //グラフのデータ
       }]
-     <?php } ?> 
+     
     },
+    <?php } ?> 
     options: {
       legend:{
       position:"bottom",
