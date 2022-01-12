@@ -4,9 +4,9 @@ USE `web-app`;
 
 DROP TABLE IF EXISTS study;
 CREATE TABLE `study`(
-  `id` INT NOT NULL PRIMARY KEY,
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `study_hour` INT NOT NULL COMMENT 'study_dayにおける学習時間（時間のみ）',
-  `study_day` DATETIME COMMENT '学習をした年月日',
+  `study_day` DATETIME NOT NULL COMMENT '学習をした年月日',
   `language_id` INT NOT NULL COMMENT 'study_languageのidカラムの外部キー',
   `content_id` INT NOT NULL COMMENT 'study_contentsのidカラムの外部キー'
    ) COMMENT='学習に関連するデータ';
@@ -14,9 +14,9 @@ CREATE TABLE `study`(
 
 DROP TABLE IF EXISTS study_language;
 CREATE TABLE `study_language`(
-  `id` INT NOT NULL PRIMARY KEY,
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `language`  VARCHAR(55) NOT NULL COMMENT '学習言語の名称',
-  `graph_color` VARCHAR(20) COMMENT '学習言語ごとのグラフの色'
+  `graph_color` VARCHAR(20) NOT NULL COMMENT '学習言語ごとのグラフの色'
    ) COMMENT='学習言語に関連するデータ';
 
 INSERT INTO `study_language` (`id`,`language`,`graph_color`) VALUES
@@ -32,9 +32,9 @@ INSERT INTO `study_language` (`id`,`language`,`graph_color`) VALUES
 
 DROP TABLE IF EXISTS study_contents;
 CREATE TABLE `study_contents`(
-  `id` INT NOT NULL PRIMARY KEY,
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `content`  VARCHAR(255) NOT NULL COMMENT '学習コンテンツの名称',
-  `graph_color` VARCHAR(20) COMMENT '学習言語ごとのグラフの色'
+  `graph_color` VARCHAR(20) NOT NULL COMMENT '学習言語ごとのグラフの色'
    ) COMMENT='学習コンテンツに関連するデータ';
 
 INSERT INTO `study_contents` (`id`,`content`,`graph_color`) VALUES
