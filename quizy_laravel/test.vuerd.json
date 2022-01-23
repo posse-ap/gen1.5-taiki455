@@ -1,0 +1,431 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -120,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "title",
+        "comment": "どの地方の問題かを判別するためのテーブル",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "41e507c6-25ab-4211-b119-42113bd32c39"
+          },
+          {
+            "name": "title",
+            "comment": "ページのタイトル・どの地方の問題か判別",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "8e77e1d4-ec43-4825-98c6-700d4d1c2e82"
+          },
+          {
+            "name": "updated_at",
+            "comment": "",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74.53993225097656,
+              "widthComment": 60,
+              "widthDataType": 70.00294494628906,
+              "widthDefault": 60
+            },
+            "id": "ce232537-7edb-4bcf-b5db-4562b6ec36a5"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 129,
+          "top": 8,
+          "zIndex": 1,
+          "widthName": 60,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "31f750e0-08b8-4ccf-bdf6-0911fa3d6b09"
+      },
+      {
+        "name": "choice_name",
+        "comment": "問題の選択肢の名前を並べるテーブル",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ba7600df-a8fa-4a73-8d1d-51ff74d75dca"
+          },
+          {
+            "name": "name",
+            "comment": "選択肢に入る語句",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 106,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "2af3bba8-6088-48ee-8a77-c95de79997ad"
+          },
+          {
+            "name": "is_answer",
+            "comment": "正誤判定",
+            "dataType": "BOOLEAN",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.32192993164062,
+              "widthComment": 60,
+              "widthDataType": 67.92295837402344,
+              "widthDefault": 60
+            },
+            "id": "09b42851-ea07-4418-a851-01ae23ee773c"
+          },
+          {
+            "name": "question_id",
+            "comment": "questionsテーブルの外部キー",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 75.41093444824219,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "4c107f37-a05c-4aba-b484-5c8c0fa18c5f"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 121,
+          "top": 239,
+          "zIndex": 3,
+          "widthName": 85.68093872070312,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "66166526-4051-46c3-bc49-2c4e11eba60d"
+      },
+      {
+        "name": "questions",
+        "comment": "問題に関するデータ",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5ad82823-d690-42a7-af6e-6dd90df733a9"
+          },
+          {
+            "name": "question_number",
+            "comment": "問題番号に関するカラム",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 113.721923828125,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dadba457-31b6-4415-951b-7d05ac3db09f"
+          },
+          {
+            "name": "question_form",
+            "comment": "質問形態",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 95.15792846679688,
+              "widthComment": 60,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "0638c9e5-dfe8-4cfc-b918-13f6e5fd1f8c"
+          },
+          {
+            "name": "img_name",
+            "comment": "問題の画像の名前",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.2989501953125,
+              "widthComment": 106,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "b0c77fa4-bdb2-4ece-a99b-792a89530912"
+          },
+          {
+            "name": "title_id",
+            "comment": "tltleテーブルの外部キー",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "597a59fc-deb6-45f9-861a-8d23798de63f"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 747,
+          "top": 66,
+          "zIndex": 2,
+          "widthName": 64.38694763183594,
+          "widthComment": 119
+        },
+        "visible": true,
+        "id": "1b42d465-d3dd-4e27-b627-4cf93a4ca824"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "1b42d465-d3dd-4e27-b627-4cf93a4ca824",
+          "columnIds": [
+            "5ad82823-d690-42a7-af6e-6dd90df733a9"
+          ],
+          "x": 747,
+          "y": 194.625,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "66166526-4051-46c3-bc49-2c4e11eba60d",
+          "columnIds": [
+            "4c107f37-a05c-4aba-b484-5c8c0fa18c5f"
+          ],
+          "x": 552.0098876953125,
+          "y": 314.5,
+          "direction": "right"
+        },
+        "constraintName": "fk_questions_to_choices",
+        "visible": true,
+        "id": "8ddf6b51-2fb6-418c-8110-8ce575e94721"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "31f750e0-08b8-4ccf-bdf6-0911fa3d6b09",
+          "columnIds": [
+            "41e507c6-25ab-4211-b119-42113bd32c39"
+          ],
+          "x": 560.5428771972656,
+          "y": 73.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "1b42d465-d3dd-4e27-b627-4cf93a4ca824",
+          "columnIds": [
+            "597a59fc-deb6-45f9-861a-8d23798de63f"
+          ],
+          "x": 747,
+          "y": 108.875,
+          "direction": "left"
+        },
+        "constraintName": "fk_title_to_questions",
+        "visible": true,
+        "id": "962a81f9-5c8a-4c4e-99ec-9a05168199e2"
+      }
+    ]
+  }
+}
