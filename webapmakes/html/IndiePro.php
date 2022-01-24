@@ -12,16 +12,12 @@
 <body>
 
     <div class="header">
-
         <div class="img">
             <img src="/Users/d_chan/Downloads/posselogowhite.jpg" alt="POSSE" class="posse-img">
         </div>
-
         <div class="weeks">
             <p class="week">4th week</p>
         </div>
-
-
     </div>
 
 

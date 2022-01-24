@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -179,
-    "scrollLeft": -9,
+    "scrollTop": 0,
+    "scrollLeft": -120,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -43,8 +43,8 @@
   "table": {
     "tables": [
       {
-        "name": "study",
-        "comment": "学習に関連するデータ",
+        "name": "title",
+        "comment": "どの地方の問題かを判別するためのテーブル",
         "columns": [
           {
             "name": "id",
@@ -52,7 +52,7 @@
             "dataType": "INT",
             "default": "",
             "option": {
-              "autoIncrement": false,
+              "autoIncrement": true,
               "primaryKey": true,
               "unique": false,
               "notNull": true
@@ -67,12 +67,12 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "21a3f62f-683b-4634-90d1-22c4156b38e9"
+            "id": "41e507c6-25ab-4211-b119-42113bd32c39"
           },
           {
-            "name": "study_hour",
-            "comment": "study_dayにおける学習時間（時間のみ）",
-            "dataType": "INT",
+            "name": "title",
+            "comment": "ページのタイトル・どの地方の問題か判別",
+            "dataType": "VARCHAR",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -85,17 +85,17 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 73.99394226074219,
+              "widthName": 60,
               "widthComment": 120,
-              "widthDataType": 60,
+              "widthDataType": 68.59895324707031,
               "widthDefault": 60
             },
-            "id": "35d17f08-dae6-42b7-8574-4730eb0b6dc8"
+            "id": "8e77e1d4-ec43-4825-98c6-700d4d1c2e82"
           },
           {
-            "name": "study_day",
-            "comment": "学習をした年：月：日",
-            "dataType": "DATETIME",
+            "name": "updated_at",
+            "comment": "",
+            "dataType": "timestamp",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -108,128 +108,36 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 67.29893493652344,
-              "widthComment": 120,
-              "widthDataType": 69.28794860839844,
+              "widthName": 74.53993225097656,
+              "widthComment": 60,
+              "widthDataType": 70.00294494628906,
               "widthDefault": 60
             },
-            "id": "0f504eb1-ea9b-4196-b35a-525f77b2b76b"
-          },
-          {
-            "name": "language_id",
-            "comment": "study_languageのidカラムの外部キー",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 78.34892272949219,
-              "widthComment": 120,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "108edae5-4433-46af-8fd3-79d873886e00"
-          },
-          {
-            "name": "content_id",
-            "comment": "study_contentsのidカラムの外部キー",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 69.54794311523438,
-              "widthComment": 120,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "682bcd41-a5e0-4644-b70b-eca6c52377e7"
+            "id": "ce232537-7edb-4bcf-b5db-4562b6ec36a5"
           }
         ],
         "ui": {
           "active": false,
-          "left": 23.75,
-          "top": 53,
-          "zIndex": 14,
+          "left": 129,
+          "top": 8,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 120
         },
         "visible": true,
-        "id": "ddcced47-598e-4d9e-b695-74aeb3d9a91b"
+        "id": "31f750e0-08b8-4ccf-bdf6-0911fa3d6b09"
       },
       {
-        "name": "study_language",
-        "comment": "学習言語に関するテーブル",
+        "name": "choice_name",
+        "comment": "問題の選択肢の名前を並べるテーブル",
         "columns": [
-          {
-            "name": "language",
-            "comment": "学習言語の名称",
-            "dataType": "VARCHAR",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60.34394836425781,
-              "widthComment": 93,
-              "widthDataType": 68.59895324707031,
-              "widthDefault": 60
-            },
-            "id": "178d0384-2009-4122-b405-672a95ed775b"
-          },
-          {
-            "name": "graph_color",
-            "comment": "学習言語グラフの色",
-            "dataType": "VARCHAR",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 78.71293640136719,
-              "widthComment": 119,
-              "widthDataType": 68.59895324707031,
-              "widthDefault": 60
-            },
-            "id": "74b62827-c62a-4b55-8b89-c7dad708b9ba"
-          },
           {
             "name": "id",
             "comment": "",
             "dataType": "INT",
             "default": "",
             "option": {
-              "autoIncrement": false,
+              "autoIncrement": true,
               "primaryKey": true,
               "unique": false,
               "notNull": true
@@ -244,27 +152,11 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "9dcbc96e-dc68-41f2-a635-edce27444f43"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 26.25,
-          "top": 479,
-          "zIndex": 2,
-          "widthName": 102.56790161132812,
-          "widthComment": 120
-        },
-        "visible": true,
-        "id": "d1bd350a-6c61-4a68-9f6a-ca0a9f4a855a"
-      },
-      {
-        "name": "study_contents",
-        "comment": "学習コンテンツに関するテーブル",
-        "columns": [
+            "id": "ba7600df-a8fa-4a73-8d1d-51ff74d75dca"
+          },
           {
-            "name": "graph_color",
-            "comment": "学習言語のグラフ",
+            "name": "name",
+            "comment": "選択肢に入る語句",
             "dataType": "VARCHAR",
             "default": "",
             "option": {
@@ -278,17 +170,17 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 78.71293640136719,
+              "widthName": 60,
               "widthComment": 106,
               "widthDataType": 68.59895324707031,
               "widthDefault": 60
             },
-            "id": "2544d938-63e0-44f3-8a2b-b4f60df4fb9e"
+            "id": "2af3bba8-6088-48ee-8a77-c95de79997ad"
           },
           {
-            "name": "content",
-            "comment": "学習コンテンツの名称",
-            "dataType": "VARCHAR",
+            "name": "is_answer",
+            "comment": "正誤判定",
+            "dataType": "BOOLEAN",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -301,20 +193,59 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 60,
-              "widthComment": 120,
-              "widthDataType": 68.59895324707031,
+              "widthName": 64.32192993164062,
+              "widthComment": 60,
+              "widthDataType": 67.92295837402344,
               "widthDefault": 60
             },
-            "id": "74dcd6b4-5929-4aee-8ec7-ff652f9142e2"
+            "id": "09b42851-ea07-4418-a851-01ae23ee773c"
           },
+          {
+            "name": "question_id",
+            "comment": "questionsテーブルの外部キー",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 75.41093444824219,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "4c107f37-a05c-4aba-b484-5c8c0fa18c5f"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 121,
+          "top": 239,
+          "zIndex": 3,
+          "widthName": 85.68093872070312,
+          "widthComment": 120
+        },
+        "visible": true,
+        "id": "66166526-4051-46c3-bc49-2c4e11eba60d"
+      },
+      {
+        "name": "questions",
+        "comment": "問題に関するデータ",
+        "columns": [
           {
             "name": "id",
             "comment": "",
             "dataType": "INT",
             "default": "",
             "option": {
-              "autoIncrement": false,
+              "autoIncrement": true,
               "primaryKey": true,
               "unique": false,
               "notNull": true
@@ -329,19 +260,111 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "3d56a6ef-0c42-4d5f-8d0a-4a04e3232cb5"
+            "id": "5ad82823-d690-42a7-af6e-6dd90df733a9"
+          },
+          {
+            "name": "question_number",
+            "comment": "問題番号に関するカラム",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 113.721923828125,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dadba457-31b6-4415-951b-7d05ac3db09f"
+          },
+          {
+            "name": "question_form",
+            "comment": "質問形態",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 95.15792846679688,
+              "widthComment": 60,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "0638c9e5-dfe8-4cfc-b918-13f6e5fd1f8c"
+          },
+          {
+            "name": "img_name",
+            "comment": "問題の画像の名前",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.2989501953125,
+              "widthComment": 106,
+              "widthDataType": 68.59895324707031,
+              "widthDefault": 60
+            },
+            "id": "b0c77fa4-bdb2-4ece-a99b-792a89530912"
+          },
+          {
+            "name": "title_id",
+            "comment": "tltleテーブルの外部キー",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "597a59fc-deb6-45f9-861a-8d23798de63f"
           }
         ],
         "ui": {
           "active": false,
-          "left": 756.5,
-          "top": 49,
-          "zIndex": 3,
-          "widthName": 100.74790954589844,
-          "widthComment": 120
+          "left": 747,
+          "top": 66,
+          "zIndex": 2,
+          "widthName": 64.38694763183594,
+          "widthComment": 119
         },
         "visible": true,
-        "id": "a561f707-e712-412f-9236-5fad1daaa07a"
+        "id": "1b42d465-d3dd-4e27-b627-4cf93a4ca824"
       }
     ],
     "indexes": []
@@ -356,52 +379,52 @@
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "d1bd350a-6c61-4a68-9f6a-ca0a9f4a855a",
+          "tableId": "1b42d465-d3dd-4e27-b627-4cf93a4ca824",
           "columnIds": [
-            "9dcbc96e-dc68-41f2-a635-edce27444f43"
+            "5ad82823-d690-42a7-af6e-6dd90df733a9"
           ],
-          "x": 242.90594482421875,
-          "y": 479,
-          "direction": "top"
+          "x": 747,
+          "y": 194.625,
+          "direction": "left"
         },
         "end": {
-          "tableId": "ddcced47-598e-4d9e-b695-74aeb3d9a91b",
+          "tableId": "66166526-4051-46c3-bc49-2c4e11eba60d",
           "columnIds": [
-            "108edae5-4433-46af-8fd3-79d873886e00"
+            "4c107f37-a05c-4aba-b484-5c8c0fa18c5f"
           ],
-          "x": 241.0684356689453,
-          "y": 224.5,
-          "direction": "bottom"
+          "x": 552.0098876953125,
+          "y": 314.5,
+          "direction": "right"
         },
-        "constraintName": "fk_study_language_to_study",
+        "constraintName": "fk_questions_to_choices",
         "visible": true,
-        "id": "49aa397c-21a5-4458-afda-0d99a2f70c99"
+        "id": "8ddf6b51-2fb6-418c-8110-8ce575e94721"
       },
       {
         "identification": false,
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "a561f707-e712-412f-9236-5fad1daaa07a",
+          "tableId": "31f750e0-08b8-4ccf-bdf6-0911fa3d6b09",
           "columnIds": [
-            "3d56a6ef-0c42-4d5f-8d0a-4a04e3232cb5"
+            "41e507c6-25ab-4211-b119-42113bd32c39"
           ],
-          "x": 756.5,
-          "y": 114.25,
-          "direction": "left"
-        },
-        "end": {
-          "tableId": "ddcced47-598e-4d9e-b695-74aeb3d9a91b",
-          "columnIds": [
-            "682bcd41-a5e0-4644-b70b-eca6c52377e7"
-          ],
-          "x": 458.3868713378906,
-          "y": 138.75,
+          "x": 560.5428771972656,
+          "y": 73.25,
           "direction": "right"
         },
-        "constraintName": "fk__to_study",
+        "end": {
+          "tableId": "1b42d465-d3dd-4e27-b627-4cf93a4ca824",
+          "columnIds": [
+            "597a59fc-deb6-45f9-861a-8d23798de63f"
+          ],
+          "x": 747,
+          "y": 108.875,
+          "direction": "left"
+        },
+        "constraintName": "fk_title_to_questions",
         "visible": true,
-        "id": "e54b88a3-5033-4035-8c7b-60915115c782"
+        "id": "962a81f9-5c8a-4c4e-99ec-9a05168199e2"
       }
     ]
   }
