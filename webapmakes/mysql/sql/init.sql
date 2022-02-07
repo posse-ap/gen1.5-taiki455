@@ -18,6 +18,7 @@ CREATE TABLE `study_language`(
   `language`  VARCHAR(55) NOT NULL COMMENT '学習言語の名称',
   `graph_color` VARCHAR(20) NOT NULL COMMENT '学習言語ごとのグラフの色'
    ) COMMENT='学習言語に関連するデータ';
+   
 
 INSERT INTO `study_language` (`id`,`language`,`graph_color`) VALUES
    (1, 'JavaScript', '#2A54EF'),
