@@ -29,7 +29,6 @@ INSERT INTO `study_language` (`id`,`language`,`graph_color`) VALUES
    (7, 'SHELL', '#4A18EF'),
    (8, '情報システム基礎知識（その他）', '#3107BF');
 
-
 DROP TABLE IF EXISTS study_contents;
 CREATE TABLE `study_contents`(
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
