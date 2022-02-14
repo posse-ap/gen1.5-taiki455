@@ -1,3 +1,23 @@
+<?php
+
+require('db_connect.php');
+
+$languages = "SELECT * FROM study_languages";
+$languageResult = $dbh->query($languages);
+
+
+
+
+$todaytimes = "SELECT study_hour from studies where study_day = :study_day";
+$stmt_today = $dbh->prepare($todaytimes);
+$stmt_today->bindValue(':study_day', date("Y-m-d"));
+$stmt_today->execute();
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -29,7 +49,12 @@
 
                 <p><span class="status">today</span>
 
-                    <br><span class="figure-today">3</span>
+                    <br><span class="figure-today">
+                    <?php  $todaytimes = $dbh->prepare('c');
+                           $todaytimes->execute();
+                           $today_study_time = $todaytimes->fetchColumn();
+                        echo $today_study_time ?>
+                    </span>
 
                     <br><span class="hours">hour</span>
                 </p>
@@ -40,7 +65,12 @@
 
                 <p><span class="status">month</span>
 
-                    <br><span class="figure-month">120</span>
+                    <br><span class="figure-month">
+                    <?php  $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%y%m") = DATE_FORMAT(NOW(), "%y%m")');
+                           $monthtimes->execute();
+                           $month_study_time = $monthtimes->fetchColumn();
+                        echo $month_study_time ?>
+                    </span>
 
                     <br><span class="hours">hour</span>
                 </p>
@@ -51,7 +81,11 @@
 
                 <p><span class="status">total</span>
 
-                    <br><span class="figure-total">1348</span>
+                    <br><span class="figure-total">
+                    <?php  $sumtimes = $dbh->prepare('SELECT sum(study_hour) FROM studies');
+                           $sumtimes->execute();
+                           $study_time = $sumtimes->fetchColumn();
+                        echo $study_time ?></span>
 
                     <br><span class="hours">hour</span>
                 </p>
@@ -117,49 +151,13 @@
                         <h4>学習言語（複数選択可）</h4>
                     </div>
 
-                    <div class="N-yobi-box">
-                        <input type="checkbox"  class="checkbox-design">N予備校
+                    <div class="study-languages-box">
+                        <?php foreach($languageResult as $item){ ?>
+                        <input type="checkbox"  class="checkbox-design"><?php echo $item['language'] ?>
+                        <?php echo '<br>' ?>
+                        <?php } ?>
                     </div>
-
-                    <div class="dot-box">
-                        <input type="checkbox"  class="checkbox-design">ドットインストール
-                    </div>
-
-                    <div class="posse-work-box">
-                        <input type="checkbox"  class="checkbox-design">POSSE課題
-                    </div>
-
-                    <div class="html-box">
-                        <input type="checkbox"  class="checkbox-design">HTML
-                    </div>
-
-                    <div class="CSS-box">
-                        <input type="checkbox"  class="checkbox-design">CSS
-                    </div>
-
-                    <div class="JS-box">
-                        <input type="checkbox"  class="checkbox-design">JavaScript
-                    </div>
-
-                    <div class="PHP-box">
-                        <input type="checkbox"  class="checkbox-design">PHP
-                    </div>
-
-                    <div class="Laravel-box">
-                        <input type="checkbox"  class="checkbox-design">Laravel
-                    </div>
-
-                    <div class="SQL-box">
-                        <input type="checkbox"  class="checkbox-design">SQL
-                    </div>
-
-                    <div class="SHELL-box">
-                        <input type="checkbox"  class="checkbox-design">SHELL
-                    </div>
-
-                    <div class="other-box">
-                        <input type="checkbox"  class="checkbox-design">情報システム基礎知識（その他）
-                    </div>
+                  
 
                     <div class="autotweet-box">
                         
@@ -182,10 +180,12 @@
                 <div class="time-studied">
                     <h4>学習時間</h4>
                 </div>
-
+                <form action="db_connect.php" method="post">
                 <div class="input-time-box">
-                    <textarea name="comment" cols="33" rows="1" class="input-time"></textarea>
+                    <textarea name="time" cols="33" rows="1" class="input-time"><?php ?></textarea>
+                    <input type="submit" name="" id="">
                 </div>
+                </form>
 
                 <div class="commentfortwitter">
                     <h4>twitter用コメント</h4>
@@ -315,7 +315,7 @@
 
 
 
-        <script src="Indie production.js"></script>
+        <script src="IndiePro.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
 </body>
 
