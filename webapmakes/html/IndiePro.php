@@ -5,18 +5,17 @@ require('db_connect.php');
 $languages = "SELECT * FROM study_languages";
 $languageResult = $dbh->query($languages);
 
-
-
-
-$todaytimes = "SELECT study_hour from studies where study_day = :study_day";
-$stmt_today = $dbh->prepare($todaytimes);
-$stmt_today->bindValue(':study_day', date("Y-m-d"));
-$stmt_today->execute();
-
-
-
-
-
+$todaytimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%D") = DATE_FORMAT(NOW(), "%D")');
+    $todaytimes->execute();
+    $today_study_time = $todaytimes->fetchColumn();
+   
+$monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%Y%m") = DATE_FORMAT(NOW(), "%Y%m")');
+    $monthtimes->execute();
+    $month_study_time = $monthtimes->fetchColumn();
+    
+    $sumtimes = $dbh->prepare('SELECT sum(study_hour) FROM studies');
+    $sumtimes->execute();
+    $study_time = $sumtimes->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -49,15 +48,16 @@ $stmt_today->execute();
 
                 <p><span class="status">today</span>
 
-                    <br><span class="figure-today">
-                    <?php  $todaytimes = $dbh->prepare('c');
-                           $todaytimes->execute();
-                           $today_study_time = $todaytimes->fetchColumn();
-                        echo $today_study_time ?>
-                    </span>
-
-                    <br><span class="hours">hour</span>
-                </p>
+                <br>
+                <span class="figure-today"><?php if($today_study_time[0][0] == null){
+                                                        echo 0;
+                                                        }
+                                                        else {echo $today_study_time[0][0];
+                                                        }?>
+                </span>
+                <br>
+                <span class="hours">hour</span>
+                </p> 
 
             </div>
 
@@ -65,14 +65,16 @@ $stmt_today->execute();
 
                 <p><span class="status">month</span>
 
-                    <br><span class="figure-month">
-                    <?php  $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%y%m") = DATE_FORMAT(NOW(), "%y%m")');
-                           $monthtimes->execute();
-                           $month_study_time = $monthtimes->fetchColumn();
-                        echo $month_study_time ?>
-                    </span>
+                <br>
+                <span class="figure-month"><?php if($month_study_time[0][0] == null){
+                                                        echo 0;
+                                                        }
+                                                        else {echo $month_study_time[0][0];
+                                                        }?>
+                </span>
 
-                    <br><span class="hours">hour</span>
+                <br>
+                <span class="hours">hour</span>
                 </p>
 
             </div>
@@ -81,18 +83,18 @@ $stmt_today->execute();
 
                 <p><span class="status">total</span>
 
-                    <br><span class="figure-total">
-                    <?php  $sumtimes = $dbh->prepare('SELECT sum(study_hour) FROM studies');
-                           $sumtimes->execute();
-                           $study_time = $sumtimes->fetchColumn();
-                        echo $study_time ?></span>
+                <br><span class="figure-total"><?php if($study_time == null){
+                                                        echo 0;
+                                                        }
+                                                        else {echo $study_time;
+                                                        }?>
+                </span>
 
-                    <br><span class="hours">hour</span>
+                <br>
+                <span class="hours">hour</span>
                 </p>
 
             </div>
-
-
 
         </div>
 
@@ -110,8 +112,6 @@ $stmt_today->execute();
 
     <div class="arrow-one"></div>
     <div class="arrow-two"></div>
-
-
 
     <div class="right-side">
 
@@ -152,25 +152,24 @@ $stmt_today->execute();
                     </div>
 
                     <div class="study-languages-box">
-                        <?php foreach($languageResult as $item){ ?>
-                        <input type="checkbox"  class="checkbox-design"><?php echo $item['language'] ?>
-                        <?php echo '<br>' ?>
-                        <?php } ?>
+                       
+                        <input type="checkbox"  class="checkbox-design">Javascript
+                        <input type="checkbox"  class="checkbox-design">CSS
+                        <input type="checkbox"  class="checkbox-design">PHP
+                        <input type="checkbox"  class="checkbox-design">HTML
+                        <br>
+                        <input type="checkbox"  class="checkbox-design">Laravel
+                        <input type="checkbox"  class="checkbox-design">SQL
+                        <input type="checkbox"  class="checkbox-design">SHELL
+                        <input type="checkbox"  class="checkbox-design">情報システム基礎知識
                     </div>
                   
-
-                    <div class="autotweet-box">
-                        
+                    <div class="autotweet-box">            
                         <input type="checkbox" onclick="window.open('https://twitter.com/?lang=ja'); return true;" class='autotweet-design'>Twitterに自動投稿する
                     </div>
 
                 </div>
             </div>
-
-
-
-
-
 
             <!-- --------------------------------モーダル右------------------------------------------------- -->
 
@@ -194,12 +193,6 @@ $stmt_today->execute();
                     <textarea name="comment" cols="57.8" rows="15" class="input-comment"></textarea>
                 </div>
 
-
-
-
-
-
-
             </div>
 
             <div class="close-button-map">
@@ -210,16 +203,9 @@ $stmt_today->execute();
             <div class="r-p-button-two-divided">
                 <input type="button" id="btn2" value="投稿" class="r-p-button-two">
 
-
-
-
-
             </div>
         </div>
     </div>
-
-
-
 
     <div id=modal2 class="modal-two">
         <div class="modal-content-two">
@@ -227,17 +213,10 @@ $stmt_today->execute();
                 <div class="record-completed">
                     <p>記録完了</p>
                 </div>
-
             </div>
         </div>
 
     </div>
-
-
-
-
-
-
 
     <!-- --------------------------------スマホ版メインページ------------------------------------------------- -->
 
@@ -245,22 +224,15 @@ $stmt_today->execute();
         <input type="button" id="phonebtn" value='記録・投稿' class="r-p-button-phone">
     </div>
 
-
-
-
     <!-- --------------------------------メインページのぼたん------------------------------------------------- -->
     <div class="r-p-button-divided">
         <input type="button" id="btn" value='記録・投稿' class="r-p-button">
     </div>
 
-
     <!-- -----   -----   -----   -----  -----   モーダルコンテンツ   -----   -----   -----   -----   -----          -->
-
-
 
     <div id="modal" class="modal">
         <div class="modal-content">
-
 
             <div class="day-I-studied">
                 <h4>学習日</h4>
@@ -272,25 +244,19 @@ $stmt_today->execute();
                 <h4>学習コンテンツ</h4>
             </div>
 
-
-
-
             <div class="language-studied">
                 <h4>学習言語（複数選択可）</h4>
             </div>
 
-
             <div class="close-button-map">
                 <input type="button" id="closeBtn" value="×" class="close-button-design">
             </div>
-
 
             <div class="r-p-button-two-divided">
                 <input type="button" id="btn2" value="投稿" class="r-p-button-two">
             </div>
         </div>
     </div>
-
 
     <div id=modal2 class="modal-two">
         <div class="modal-content-two">
@@ -312,8 +278,6 @@ $stmt_today->execute();
 
             </div>
         </div>
-
-
 
         <script src="IndiePro.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
