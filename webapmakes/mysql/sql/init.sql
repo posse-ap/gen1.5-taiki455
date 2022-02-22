@@ -43,7 +43,7 @@ CREATE TABLE `studies`(
   FOREIGN KEY(`content_id`) REFERENCES `study_contents`(`id`) ON DELETE CASCADE
    ) COMMENT='学習に関連するデータ';
 
-<<<<<<< HEAD
+
 INSERT INTO `studies` (`id`,`study_hour`,`study_day`,`language_id`,`content_id`) VALUES
    (1, 1, '2022-01-01',1,1),
    (2, 3, '2022-02-14',1,1),

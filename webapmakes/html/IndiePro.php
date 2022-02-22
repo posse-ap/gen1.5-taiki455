@@ -50,7 +50,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
 
                 <p><span class="status">today</span>
 
-<<<<<<< HEAD
+
                 <br>
                 <span class="figure-today"><?php if($today_study_time[0][0] == null){
                                                         echo 0;
@@ -61,7 +61,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                 <br>
                 <span class="hours">hour</span>
                 </p> 
-=======
+
                   19
 
             </div>
@@ -70,7 +70,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
 
                 <p><span class="status">month</span>
 
-<<<<<<< HEAD
+
                 <br>
                 <span class="figure-month"><?php if($month_study_time[0][0] == null){
                                                         echo 0;
@@ -78,14 +78,14 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                                                         else {echo $month_study_time[0][0];
                                                         }?>
                 </span>
-=======
+
                     <br><span class="figure-month">
                     <?php  $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%y%m") = DATE_FORMAT(NOW(), "%y%m")');
                            $monthtimes->execute();
                            $month_study_time = $monthtimes->fetchColumn();
                         echo $month_study_time ?>
                     </span>
->>>>>>> 2b4dd7c3a68ff38b451ecd441202dc839baa2719
+
 
                 <br>
                 <span class="hours">hour</span>
@@ -97,14 +97,14 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
 
                 <p><span class="status">total</span>
 
-<<<<<<< HEAD
+
                 <br><span class="figure-total"><?php if($study_time == null){
                                                         echo 0;
                                                         }
                                                         else {echo $study_time;
                                                         }?>
                 </span>
-=======
+
                     <br><span class="figure-total">
                     <?php  $sumtimes = $dbh->prepare('SELECT sum(study_hour) FROM studies');
                            $sumtimes->execute();
@@ -174,7 +174,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                     </div>
 
                     <div class="study-languages-box">
-<<<<<<< HEAD
+
                        
                         <input type="checkbox"  class="checkbox-design">Javascript
                         <input type="checkbox"  class="checkbox-design">CSS
@@ -188,7 +188,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                     </div>
                   
                     <div class="autotweet-box">            
-=======
+
                         <?php foreach($languageResult as $item){ ?>
                         <input type="checkbox"  class="checkbox-design"><?php echo $item['language'] ?>
                         <?php echo '<br>' ?>
@@ -198,7 +198,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
 
                     <div class="autotweet-box">
                         
->>>>>>> 2b4dd7c3a68ff38b451ecd441202dc839baa2719
+
                         <input type="checkbox" onclick="window.open('https://twitter.com/?lang=ja'); return true;" class='autotweet-design'>Twitterに自動投稿する
                     </div>
 
@@ -313,11 +313,11 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
             </div>
         </div>
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 2b4dd7c3a68ff38b451ecd441202dc839baa2719
+
+
+
         <script src="IndiePro.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
 </body>
