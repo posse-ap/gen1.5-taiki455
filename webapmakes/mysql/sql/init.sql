@@ -28,9 +28,9 @@ CREATE TABLE `study_contents`(
    ) COMMENT='学習コンテンツに関連するデータ';
 
 INSERT INTO `study_contents` (`id`,`content`,`graph_color`) VALUES
-(1, 'ドットインストール', '#2A54EF'),
-(2, 'N予備校', '#1B71BD'),
-(3, 'POSSE課題', '#21BDDE');
+   (1, 'ドットインストール', '#2A54EF'),
+   (2, 'N予備校', '#1B71BD'),
+   (3, 'POSSE課題', '#21BDDE');
 
 DROP TABLE IF EXISTS studies;
 CREATE TABLE `studies`(
