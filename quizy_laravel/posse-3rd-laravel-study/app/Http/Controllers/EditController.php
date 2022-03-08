@@ -42,6 +42,11 @@ class EditController extends Controller
         return redirect()->route('question_list',['title_id'=>$request->title_id]);
     
     }
+    public function question_number_delete(Request $request){
+      
+        Question::destroy($request['delete_id']);
+        return back()->withInput();  
+    }
 
     public function update(Request $request,$title_id)
     {

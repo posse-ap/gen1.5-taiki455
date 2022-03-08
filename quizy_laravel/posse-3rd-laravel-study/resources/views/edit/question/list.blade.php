@@ -21,8 +21,11 @@
         
         <a href="{{route('question_edit',['title_id'=>$item->title_id,'question_id'=>$item->question_number])}}">{{$item->question_number}}</a>
         
-        <input type="button" value="削除する" class="delete_button">
-            
+        <form action="{{route('question_list_delete')}}" method="POST">
+            @csrf
+        <input type="hidden" class="delete_button" name="delete_id" value="{{$item->id}}">
+        <input type="submit" value="削除する" class="delete_button" name="delete_number_id">
+        </form>
         @endforeach    
 
     </div>

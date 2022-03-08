@@ -21,6 +21,7 @@ Route::middleware(['loginCheck'])->group(function () {
     Route::post('/admin', 'EditController@create_delete_title');
     Route::get('/admin/{title_id}', 'EditController@question_number')->name('question_list');
     Route::post('/admin/create_question', 'EditController@question_number_create')->name('question_list_update');
+    Route::post('/admin/delete_question', 'EditController@question_number_delete')->name('question_list_delete');
     Route::get('/admin/{title_id}/edit', 'EditController@title_editer')->name('title_edit');
     Route::post('/admin/{title_id}/edit', 'EditController@update_title');
     Route::get('/admin/{title_id}/{question_id}/edit', 'EditController@question_editer')->name('question_edit');
