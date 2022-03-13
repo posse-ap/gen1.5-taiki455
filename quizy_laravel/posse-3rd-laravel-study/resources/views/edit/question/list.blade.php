@@ -26,6 +26,11 @@
         <input type="hidden" class="delete_button" name="delete_id" value="{{$item->id}}">
         <input type="submit" value="削除する" class="delete_button" name="delete_number_id">
         </form>
+
+        <form action="{{}}">
+        <input type="img" value="{{$item->img_name}}">
+        </form>
+
         @endforeach    
 
     </div>

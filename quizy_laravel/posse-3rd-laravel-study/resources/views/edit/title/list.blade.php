@@ -17,7 +17,6 @@
         <input type="submit" name="create_title" id="" class="submit_button" value="完了">
         </form>
         
-
         @foreach ($title as $item)
         {{$item->title}}
         <a href="{{route('title_edit',['title_id'=>$item->id])}}">タイトル編集画面</a>
@@ -28,7 +27,6 @@
         <input type="hidden" class="delete_button" name="delete_id" value="{{$item->id}}">
         <input type="submit" class="delete_button" name="delete_title" value="削除">
        </form>
-
         @endforeach
 
 
