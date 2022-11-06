@@ -2,10 +2,6 @@
 
 require('db_connect.php');
 
-$languages = "SELECT * FROM study_languages";
-$languageResult = $dbh->query($languages);
-
-
 $todaytimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%D") = DATE_FORMAT(NOW(), "%D")');
     $todaytimes->execute();
     $today_study_time = $todaytimes->fetchColumn();
@@ -62,8 +58,6 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                 <span class="hours">hour</span>
                 </p> 
 
-                  19
-
             </div>
 
             <div class=card-two>
@@ -78,15 +72,7 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                                                         else {echo $month_study_time[0][0];
                                                         }?>
                 </span>
-
-                    <br><span class="figure-month">
-                    <?php  $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORMAT(study_day, "%y%m") = DATE_FORMAT(NOW(), "%y%m")');
-                           $monthtimes->execute();
-                           $month_study_time = $monthtimes->fetchColumn();
-                        echo $month_study_time ?>
-                    </span>
-
-
+                   
                 <br>
                 <span class="hours">hour</span>
                 </p>
@@ -104,14 +90,6 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                                                         else {echo $study_time;
                                                         }?>
                 </span>
-
-                    <br><span class="figure-total">
-                    <?php  $sumtimes = $dbh->prepare('SELECT sum(study_hour) FROM studies');
-                           $sumtimes->execute();
-                           $study_time = $sumtimes->fetchColumn();
-                        echo $study_time ?></span>
->>>>>>> 2b4dd7c3a68ff38b451ecd441202dc839baa2719
-
                 <br>
                 <span class="hours">hour</span>
                 </p>
@@ -163,19 +141,25 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                     <div class="input-day-box">
                         <textarea name="comment" cols="33" rows="1" class="input-day"></textarea>
                     </div>
+                      
+                  
 
                     <div class="contents-studied">
                         <h4>学習コンテンツ</h4>
-                    </div>
+                    
 
+                    <div class="">
+                        <input type="checkbox"  class="checkbox-design">ドットインストール
+                        <input type="checkbox"  class="checkbox-design">N予備校
+                        <input type="checkbox"  class="checkbox-design">POSSE課題
+                    </div>
+                    </div>
 
                     <div class="language-studied">
                         <h4>学習言語（複数選択可）</h4>
-                    </div>
+                    
 
                     <div class="study-languages-box">
-
-                       
                         <input type="checkbox"  class="checkbox-design">Javascript
                         <input type="checkbox"  class="checkbox-design">CSS
                         <input type="checkbox"  class="checkbox-design">PHP
@@ -186,13 +170,10 @@ $monthtimes = $dbh->prepare('SELECT sum(study_hour) from studies where DATE_FORM
                         <input type="checkbox"  class="checkbox-design">SHELL
                         <input type="checkbox"  class="checkbox-design">情報システム基礎知識
                     </div>
+                    </div>
                   
                     <div class="autotweet-box">            
 
-                        <?php foreach($languageResult as $item){ ?>
-                        <input type="checkbox"  class="checkbox-design"><?php echo $item['language'] ?>
-                        <?php echo '<br>' ?>
-                        <?php } ?>
                     </div>
                   
 

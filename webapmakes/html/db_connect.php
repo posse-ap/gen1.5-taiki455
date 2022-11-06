@@ -1,11 +1,11 @@
 <?php
-$dsn = 'mysql:host=db;dbname=web_app;charset=utf8mb4;';
+$dsn = 'mysql:host=db;dbname=web-app;charset=utf8mb4;';
 $user = 'taiki';
 $password = 'password';
 
 try {
-  $db = new PDO($dsn, $user, $password);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $dbh = new PDO($dsn, $user, $password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   
 } catch (PDOException $e) {
